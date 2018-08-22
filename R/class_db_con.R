@@ -23,9 +23,9 @@
 #'   }
 
 
-Dbcon <-
+class_db_con <-
   R6::R6Class(
-    classname = "dbcon",
+    classname = "db_con",
     public =
       list(
         con = NULL,
