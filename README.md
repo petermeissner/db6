@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-What the Package Does (Title Case)
-==================================
+A convenience R6 class framework around DBI.
+============================================
 
 **Status**
 
@@ -13,13 +13,13 @@ What the Package Does (Title Case)
 
 **Version**
 
-0.1.0 ( 2018-08-23 03:41:56 )
+0.1.0 ( 2018-08-23 04:15:17 )
 
 **Description**
 
 **License**
 
-What license is it under? <br>Who wrote it
+MIT + file LICENSE <br>Peter Meissner \[aut, cre\], \[ctb\]
 
 **Credits**
 
@@ -31,11 +31,7 @@ What license is it under? <br>Who wrote it
 citation("db6")
 ```
 
-    ## Warning in citation("db6"): no date field in DESCRIPTION file of package 'db6'
-
-    ## Warning in citation("db6"): could not determine year for 'db6' from package DESCRIPTION file
-
-it Ww (????). *db6: What the Package Does (Title Case)*. R package version 0.1.0.
+Meissner P (2018). *db6: A convenience R6 class framework around DBI.*. R package version 0.1.0.
 
 **BibTex for citing**
 

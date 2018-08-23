@@ -1,6 +1,6 @@
 Package: db6
 Type: Package
-Title: A convenience R6 class framework around DBI - provides classes for connection, db, table, ... with methods around SQL verbs create, insert, update, delete, select, ... .
+Title: A convenience R6 class framework around DBI.
 Version: 0.1.0
 Date: 2018-08-23
 Author: Peter Meissner [aut, cre],  [ctb]
