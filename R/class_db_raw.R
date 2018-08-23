@@ -13,7 +13,6 @@
 #' @format \code{\link{R6Class}} object.
 #'
 #'
-#' @examples
 #' @field con
 #'
 #' @section Methods:

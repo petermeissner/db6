@@ -14,13 +14,15 @@ Authors@R:
     )
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
 Description: A convenience R6 class framework around DBI that provides classes 
-  for connection, db, table, ... with methods around SQL verbs create, insert, 
-  update, delete, select, ... and many more.
+    for connection, db, table, ... with methods around SQL verbs create, insert, 
+    update, delete, select, ... and many more.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
 Depends:
     R (>= 3.0.0)
-Imports: DBI (>= 1.0.0)
+Imports: 
+    DBI (>= 1.0.0),
+    R6 (>= 2.2.2)
 Suggests: covr
