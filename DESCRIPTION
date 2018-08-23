@@ -1,13 +1,26 @@
 Package: db6
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A convenience R6 class framework around DBI - provides classes for connection, db, table, ... with methods around SQL verbs create, insert, update, delete, select, ... .
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Date: 2018-08-23
+Author: Peter Meissner [aut, cre],  [ctb]
+Authors@R:
+    c(
+      person(
+        "Peter", "Meissner", role = c("aut", "cre"),
+        email = "retep.meissner@gmail.com"
+      ),
+	     person("", "R Core Team", role = "cph")
+    )
+Maintainer: Peter Meissner <retep.meissner@gmail.com>
+Description: A convenience R6 class framework around DBI that provides classes 
+  for connection, db, table, ... with methods around SQL verbs create, insert, 
+  update, delete, select, ... and many more.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Depends:
+    R (>= 3.0.0)
 Imports: DBI (>= 1.0.0)
+Suggests: covr
