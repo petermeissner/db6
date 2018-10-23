@@ -18,7 +18,7 @@ cat("#", tmp$Title)
 
 **Status**
 
-**[[WIP]]**, **[[SKETCHING]]**
+**[[SKETCHING]]** | **[[WIP]]**
 
 
 <a href="https://travis-ci.org/petermeissner/db6">
@@ -91,30 +91,6 @@ cat(tmp$Author)
 ```
 
 
-**Credits**
-
-- Parts of the package's code have been shamelessly copied and modified from R base package written by R core team. This concerns the `wp_date()` generic and its methods and is detailed in the help files. 
-
-
-
-
-**Citation**
-
-
-```{r, results='asis', eval=FALSE}
-citation("db6")
-```
-
-```{r, results='asis', echo=FALSE}
-print(citation("db6"), style = "text")
-```
-
-**BibTex for citing**
-
-```{r, eval=FALSE}
-toBibtex(citation("db6"))
-```
-
 
 
 **Installation**
@@ -133,9 +109,48 @@ devtools::install_github("petermeissner/db6")
 ```
 
 
-**Usage**
 
-*starting up ...*
+
+------------------------------------------------------------------------
+
+
+## Connections
+
+**loading packages**
+
 ```{r}
+# packages
+library(RSQLite)
 library(db6)
 ```
+
+
+**setting up a connection object**
+
+```{r}
+# creating con object
+db_con <- new_db_con(drv_fun = SQLite, ":memory:")
+```
+
+**getting infos on the connection**
+
+```{r}
+# connection infos
+db_con$con
+
+db_con$info()
+```
+
+
+**doing auto reconnect on stale connections**
+
+```{r}
+# Auto reconnect
+db_con$disconnect()
+db_con$con
+
+db_con$info()
+db_con$con
+```
+
+

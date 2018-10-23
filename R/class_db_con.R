@@ -18,34 +18,64 @@
 #' @section Methods:
 #'
 #' \describe{
-#'   \item{\code{gallery(imgpathvector)}}{This method uploads images from vector of file paths \code{imgpathvector} to the server and creates a gallery of these images.}
-#'   }
-
-
+#'   \item{initialize}{will either set up connection}
+#' }
 class_db_con <-
   R6::R6Class(
     classname = "db_con",
+
+##### PRIVATE ------------------------------------------------------------------
+    private =
+      list(
+        inits = list()
+      ),
+
+
+##### PUBLIC -------------------------------------------------------------------
     public =
       list(
+
+        # field -- con
         con = NULL,
+
+
+        # method -- connect
+        connect =
+          function(){
+            self$con <- do.call(db_connect, private$inits$dots)
+          },
+
+
+        # method -- initialize
         initialize =
           function(
-            con  = NULL,
             ...
           ){
 
-            # handle connection information
-            # ... or set up connection
-            # ... or use ANSI as default
-            if ( is.null(con) & length(list(...)) == 0 ){
-              # DEV : # con <- DBI::ANSI()
-              con <- DBI::dbConnect(RSQLite::SQLite(), dbname =":memory:")
-            }else{
-              con <- DBI::dbConnect(...)
-            }
+            # save inits
+            private$inits$dots <- list(...)
 
             # set connection field
-            self$con <- con
+            self$con <- self$connect()
+          },
+
+
+        # method -- info
+        info =
+          function() {
+            if (DBI::dbIsValid(self$con)) {
+              db_get_info(self$con)
+            } else {
+              self$connect()
+              db_get_info(self$con)
+            }
+          },
+
+
+        # method -- disconnect
+        disconnect =
+          function(){
+            DBI::dbDisconnect(self$con)
           }
       )
   )
