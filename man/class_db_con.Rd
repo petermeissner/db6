@@ -24,8 +24,8 @@ Class providing object with methods for communication with lightning-viz server
 
 
 \describe{
-  \item{\code{gallery(imgpathvector)}}{This method uploads images from vector of file paths \code{imgpathvector} to the server and creates a gallery of these images.}
-  }
+  \item{initialize}{will either set up connection}
+}
 }
 
 \keyword{data}

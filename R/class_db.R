@@ -13,21 +13,29 @@
 #' @format \code{\link{R6Class}} object.
 #'
 #'
-#' @field con
 #'
 #' @section Methods:
 #'
 #' \describe{
-#'   \item{\code{gallery(imgpathvector)}}{This method uploads images from vector of file paths \code{imgpathvector} to the server and creates a gallery of these images.}
+#'   \item{\code{method()}}{description}
 #'   }
 
-class_db_basic <-
+class_db <-
   R6::R6Class(
-    classname = "db_basic",
-    inherit   = class_db_raw,
+    classname    = "db",
+    active       = NULL,
+    inherit      = NULL,
+    lock_objects = FALSE,
+    lock_class   = FALSE,
+    class        = TRUE,
+    parent_env   = asNamespace('db6'),
+    cloneable    = FALSE,
     public =
       list(
 
-      )
+      ),
+
+    private = list()
   )
+
 
