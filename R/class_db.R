@@ -10,7 +10,7 @@
 #'
 #' @return Object of \code{\link{R6Class}} with methods for communication with lightning-viz server.
 #'
-#' @format \code{\link{R6Class}} object.
+#' @format \code{\link[R6]{R6Class}} object.
 #'
 #'
 #'

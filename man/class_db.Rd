@@ -4,7 +4,7 @@
 \name{class_db}
 \alias{class_db}
 \title{Class describing object of type db}
-\format{\code{\link{R6Class}} object.}
+\format{\code{\link[R6]{R6Class}} object.}
 \usage{
 class_db
 }

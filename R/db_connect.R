@@ -1,9 +1,6 @@
 #' db_connect
 #'
-#' @param drv_fun
-#' @param ...
-#'
-#' @export
+#' @rdname new_db_con
 #'
 db_connect <-
   function(drv_fun, ...){

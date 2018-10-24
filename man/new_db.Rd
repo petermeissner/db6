@@ -7,7 +7,7 @@
 new_db(...)
 }
 \arguments{
-\item{...}{}
+\item{...}{arguments passed through to \code{class_db$new(...)}}
 }
 \description{
 Generates new db object.

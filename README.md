@@ -1,11 +1,11 @@
 -   [A convenience R6 class framework around
-    DBI.](#a-convenience-r6-class-framework-around-dbi.)
+    DBI](#a-convenience-r6-class-framework-around-dbi)
     -   [Package Info](#package-info)
     -   [Connections](#connections)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-A convenience R6 class framework around DBI.
-============================================
+A convenience R6 class framework around DBI
+===========================================
 
 **Status**
 
@@ -28,7 +28,7 @@ Package Info
 
 **Version**
 
-0.1.0 ( 2018-10-24 05:40:34 )
+0.1.1 ( 2018-10-24 05:48:37 )
 
 **Description**
 

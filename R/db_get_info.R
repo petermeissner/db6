@@ -1,6 +1,6 @@
 #' db_get_info
 #'
-#' @param con
+#' @param con a connection object
 #'
 #' @export
 #'

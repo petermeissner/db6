@@ -1,8 +1,8 @@
 Package: db6
 Type: Package
-Title: A convenience R6 class framework around DBI.
-Version: 0.1.0
-Date: 2018-08-23
+Title: A convenience R6 class framework around DBI
+Version: 0.1.1
+Date: 2018-10-23
 Author: Peter Meissner [aut, cre],  [ctb]
 Authors@R:
     c(

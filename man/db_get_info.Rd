@@ -16,7 +16,7 @@ db_get_info_AnsiConnection(con)
 db_get_info_PostgreSQLConnection(con)
 }
 \arguments{
-\item{con}{}
+\item{con}{a connection object}
 }
 \description{
 db_get_info

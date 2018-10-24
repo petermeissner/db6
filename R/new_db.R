@@ -3,12 +3,10 @@
 #'
 #' Generates new db object.
 #'
-#' @param ...
+#' @param ... arguments passed through to \code{class_db$new(...)}
 #'
-#' @return
 #' @export
 #'
-#' @examples
 new_db <- function(...){
   class_db$new(...)
 }
