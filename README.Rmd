@@ -20,6 +20,7 @@ cat("#", tmp$Title)
 ```
 
 
+
 **Status**
 
 [![Project Status: WIP.](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
@@ -57,6 +58,8 @@ length.cpp   <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.cpp,  value = T
 *lines of R code:* `r length.R`, *lines of test code:* `r length.tests`
 
 
+
+## Package Info
 
 **Version**
 
@@ -128,14 +131,16 @@ library(db6)
 ```
 
 
-**setting up a connection object**
+### A New Connection Object
 
 ```{r}
 # creating con object
 db_con <- new_db_con(drv_fun = SQLite, ":memory:")
 ```
 
-**getting infos on the connection**
+
+
+### Connection Infos
 
 ```{r}
 # connection infos
@@ -145,7 +150,8 @@ db_con$info()
 ```
 
 
-**doing auto reconnect on stale connections**
+
+### Auto Reconnect on Stale Connections
 
 ```{r}
 # Auto reconnect

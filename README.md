@@ -1,5 +1,6 @@
 -   [A convenience R6 class framework around
     DBI.](#a-convenience-r6-class-framework-around-dbi.)
+    -   [Package Info](#package-info)
     -   [Connections](#connections)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -20,11 +21,14 @@ checks](https://cranchecks.info/badges/summary/reshape)](https://cran.r-project.
 </a> <img src="http://cranlogs.r-pkg.org/badges/grand-total/db6">
 <img src="http://cranlogs.r-pkg.org/badges/db6">
 
-*lines of R code:* 100, *lines of test code:* 0
+*lines of R code:* 101, *lines of test code:* 0
+
+Package Info
+------------
 
 **Version**
 
-0.1.0 ( 2018-10-23 21:08:25 )
+0.1.0 ( 2018-10-24 05:40:34 )
 
 **Description**
 
@@ -57,12 +61,12 @@ Connections
     library(RSQLite)
     library(db6)
 
-**setting up a connection object**
+### A New Connection Object
 
     # creating con object
     db_con <- new_db_con(drv_fun = SQLite, ":memory:")
 
-**getting infos on the connection**
+### Connection Infos
 
     # connection infos
     db_con$con
@@ -79,7 +83,7 @@ Connections
     ## $dbname
     ## [1] ":memory:"
 
-**doing auto reconnect on stale connections**
+### Auto Reconnect on Stale Connections
 
     # Auto reconnect
     db_con$disconnect()
