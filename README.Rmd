@@ -1,5 +1,9 @@
 ---
-output: github_document
+toc: true
+output:
+  md_document:
+    toc: true
+    toc_depth: 2
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -18,17 +22,16 @@ cat("#", tmp$Title)
 
 **Status**
 
-**[[SKETCHING]]** | **[[WIP]]**
-
-
+[![Project Status: WIP.](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
 <a href="https://travis-ci.org/petermeissner/db6">
 <img src="https://api.travis-ci.org/petermeissner/db6.svg?branch=master">
 <a/>
-<a href="https://codecov.io/gh/petermeissner/db6">
-  <img src="https://codecov.io/gh/petermeissner/db6/branch/master/graph/badge.svg" alt="Codecov" />
-</a>
 <a href="https://cran.r-project.org/package=db6">
 <img src="http://www.r-pkg.org/badges/version/db6">
+</a>
+[![cran checks](https://cranchecks.info/badges/summary/reshape)](https://cran.r-project.org/web/checks/check_results_reshape.html)
+<a href="https://codecov.io/gh/petermeissner/db6">
+<img src="https://codecov.io/gh/petermeissner/db6/branch/master/graph/badge.svg" alt="Codecov" />
 </a>
 <img src="http://cranlogs.r-pkg.org/badges/grand-total/db6">
 <img src="http://cranlogs.r-pkg.org/badges/db6">
@@ -79,7 +82,7 @@ cat(tmp$Version, "(",last_change,")")
 
 
 ```{r, results='asis', echo=FALSE}
-#cat(tmp$Description)
+cat(tmp$Description)
 ```
 
 
