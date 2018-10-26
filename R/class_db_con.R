@@ -24,25 +24,22 @@ class_db_con <-
   R6::R6Class(
     classname = "db_con",
 
-##### PRIVATE ------------------------------------------------------------------
+    ##### PRIVATE --------------------------------------------------------------
     private =
       list(
-        inits = list()
+        inits = list(),
+        conn  = NULL
       ),
 
 
-##### PUBLIC -------------------------------------------------------------------
+    ##### PUBLIC ---------------------------------------------------------------
     public =
       list(
-
-        # field -- con
-        con = NULL,
-
 
         # method -- connect
         connect =
           function(){
-            self$con <- do.call(db_connect, private$inits$dots)
+            private$conn <- do.call(db_connect, private$inits$dots)
           },
 
 
@@ -61,21 +58,39 @@ class_db_con <-
 
 
         # method -- info
-        info =
-          function() {
-            if (DBI::dbIsValid(self$con)) {
-              db_get_info(self$con)
-            } else {
-              self$connect()
-              db_get_info(self$con)
-            }
-          },
+        info = function() { db_get_info(self$con) },
 
 
         # method -- disconnect
         disconnect =
           function(){
             DBI::dbDisconnect(self$con)
+          }
+      ),
+
+    ##### ACTIVE ---------------------------------------------------------------
+
+    active =
+      list(
+        con =
+          function(value){
+
+            if ( missing(value) ){    # --> # normal return
+
+              # check connection validity
+              # and (re-)connect if necessary
+              if ( ! DBI::dbIsValid(private$conn) ) {
+                self$connect()
+              }
+
+              # return connecion
+              return(private$conn)
+
+            } else {                  # --> normal assignment
+
+              private$conn <- value
+
+            }
           }
       )
   )

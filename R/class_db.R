@@ -32,10 +32,7 @@ class_db <-
     cloneable    = FALSE,
     public =
       list(
-
-      ),
-
-    private = list()
+      )
   )
 
 
