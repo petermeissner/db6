@@ -30,8 +30,18 @@ class_db <-
     class        = TRUE,
     parent_env   = asNamespace('db6'),
     cloneable    = FALSE,
+
     public =
       list(
+        initialize =
+          function(drv_fun, ...){
+            private$dbcon <- new_db_con(drv_fun = drv_fun, ...)
+          }
+      ),
+
+    private =
+      list(
+        dbcon = NULL
       )
   )
 

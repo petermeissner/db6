@@ -25,4 +25,6 @@ Depends:
 Imports: 
     DBI (>= 1.0.0),
     R6 (>= 2.2.2)
-Suggests: covr
+Suggests: 
+    covr,
+    testthat
