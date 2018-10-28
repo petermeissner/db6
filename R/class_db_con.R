@@ -79,12 +79,12 @@ class_db_con <-
 
               # check connection validity
               # and (re-)connect if necessary
-              if ( ! DBI::dbIsValid(private$conn) ) {
+              if ( !DBI::dbIsValid(private$conn) ) {
                 self$connect()
               }
 
               # return connecion
-              return(private$conn)
+              private$conn
 
             } else {                  # --> normal assignment
 
