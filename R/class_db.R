@@ -42,14 +42,22 @@ class_db <-
         # method -- initialize -------------------------------------------------
         initialize =
           function(drv_fun, ...){
+
+            # initialize con
             private$dbcon <- new_db_con(drv_fun = drv_fun, ...)
+
+            # copy public interface to field con
+            self$con <- r6_extract_methods(private$dbcon)
           },
 
         # method -- initialize -------------------------------------------------
         finalize =
           function(){
             private$dbcon$disconnect()
-          }
+          },
+
+        # field -- con ---------------------------------------------------------
+        con = NULL
       ),
 
 
