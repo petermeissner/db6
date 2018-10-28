@@ -27,8 +27,8 @@ class_db_con <-
     ##### PRIVATE --------------------------------------------------------------
     private =
       list(
-        inits = list(),
-        conn  = NULL
+        inits       = list(),
+        connection  = NULL
       ),
 
 
@@ -39,9 +39,15 @@ class_db_con <-
         # method -- connect
         connect =
           function(){
-            private$conn <- do.call(db_connect, private$inits$dots)
+            private$connection <- do.call(db_connect, private$inits$dots)
           },
 
+        # method -- finalize
+
+        finalize =
+          function(){
+            self$disconnect
+          },
 
         # method -- initialize
         initialize =
@@ -53,7 +59,7 @@ class_db_con <-
             private$inits$dots <- list(...)
 
             # set connection field
-            self$con <- self$connect()
+            self$connect()
           },
 
 
@@ -64,7 +70,7 @@ class_db_con <-
         # method -- disconnect
         disconnect =
           function(){
-            DBI::dbDisconnect(self$con)
+            DBI::dbDisconnect(private$connection)
           }
       ),
 
@@ -79,16 +85,16 @@ class_db_con <-
 
               # check connection validity
               # and (re-)connect if necessary
-              if ( !DBI::dbIsValid(private$conn) ) {
+              if ( !DBI::dbIsValid(private$connection) ) {
                 self$connect()
               }
 
               # return connecion
-              private$conn
+              private$connection
 
             } else {                  # --> normal assignment
 
-              private$conn <- value
+              private$connection <- value
 
             }
           }
