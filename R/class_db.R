@@ -22,6 +22,8 @@
 
 class_db <-
   R6::R6Class(
+
+    #### OPTIONS ###############################################################
     classname    = "db",
     active       = NULL,
     inherit      = NULL,
@@ -31,18 +33,45 @@ class_db <-
     parent_env   = asNamespace('db6'),
     cloneable    = FALSE,
 
+
+
+    #### PUBLIC ################################################################
     public =
       list(
+
+        # method -- initialize -------------------------------------------------
         initialize =
           function(drv_fun, ...){
             private$dbcon <- new_db_con(drv_fun = drv_fun, ...)
+          },
+
+        # method -- initialize -------------------------------------------------
+        finalize =
+          function(){
+            private$dbcon$disconnect()
           }
       ),
 
+
+
+    #### PRIVATE ###############################################################
     private =
       list(
         dbcon = NULL
       )
   )
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
