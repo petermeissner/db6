@@ -47,7 +47,15 @@
 #'
 class_db_con <-
   R6::R6Class(
+
+    #### OPTIONS ###############################################################
     classname = "db_con",
+    inherit      = NULL,
+    lock_objects = FALSE,
+    lock_class   = FALSE,
+    class        = TRUE,
+    parent_env   = asNamespace('db6'),
+    cloneable    = FALSE,
 
     ##### PRIVATE --------------------------------------------------------------
     private =
@@ -101,6 +109,18 @@ class_db_con <-
             param              <- private$inits$dots
             param$auto_connect <- private$inits$auto_connect
             do.call("new_db_con", param)
+          },
+
+        # method -- query ------------------------------------------------------
+        query_exec =
+          function(sql){
+            DBI::dbExecute(conn = self$con, statement = sql)
+          },
+
+        # method -- query_get --------------------------------------------------
+        query_get =
+          function(sql){
+            DBI::dbGetQuery(conn = self$con, statement = sql)
           },
 
 
