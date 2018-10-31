@@ -49,7 +49,7 @@ db_get_info_PostgreSQLConnection <-
       host             = info$host,
       port             = info$port,
       protocol_version = info$protocolVersion,
-      backen_pip       = info$backendPID,
+      backend_pip      = info$backendPID,
       rs_id            = info$rsId
     )
   }
