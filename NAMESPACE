@@ -2,7 +2,10 @@
 
 export(class_db)
 export(class_db_con)
+export(class_db_table)
+export(class_db_table_prototype)
 export(db_get_info)
 export(new_db)
 export(new_db_con)
+export(new_db_table_prototype)
 importFrom(R6,R6Class)

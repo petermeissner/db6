@@ -44,20 +44,39 @@ class_db <-
           function(drv_fun, ...){
 
             # initialize con
-            private$dbcon <- new_db_con(drv_fun = drv_fun, ...)
+            private$db_con <- new_db_con(drv_fun = drv_fun, ...)
 
             # copy public interface to field con
-            self$con <- r6_extract_methods(private$dbcon)
+            self$con <- r6_extract_methods(private$db_con)
+
+            # copy public interface to field con
+            self$tables$.proto <- new_db_table_prototype(private$db_con)
           },
 
         # method -- initialize -------------------------------------------------
         finalize =
           function(){
-            private$dbcon$disconnect()
+            private$db_con$disconnect()
           },
 
         # field -- con ---------------------------------------------------------
-        con = NULL
+        con = NULL,
+
+        # field -- tables ------------------------------------------------------
+        tables = NULL,
+
+
+        # method -- info -------------------------------------------------------
+        info =
+          function(){
+
+          },
+
+        # method -- info_tables ------------------------------------------------
+        info_tables =
+          function(){
+            DBI::dbListTables(private$db_con$con)
+          }
       ),
 
 
@@ -65,7 +84,7 @@ class_db <-
     #### PRIVATE ###############################################################
     private =
       list(
-        dbcon = NULL
+        db_con = NULL
       )
   )
 
