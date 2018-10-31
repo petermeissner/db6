@@ -3,29 +3,49 @@
 \docType{class}
 \name{class_db_con}
 \alias{class_db_con}
-\title{Class providing object with methods for communication with lightning-viz server}
+\title{A database connection}
 \format{\code{\link{R6Class}} object.}
 \usage{
 class_db_con
 }
-\value{
-Object of \code{\link{R6Class}} with methods for communication with lightning-viz server.
-}
 \description{
-Class providing object with methods for communication with lightning-viz server
+Provides wrapper object around DBIConnection objects.
 }
-\section{Fields}{
+\section{Features}{
+
 
 \describe{
-\item{\code{con}}{}
-}}
+  \item{persistant connection information}{By capturing the connection
+  creation function as well as all parameter needed to create connection in
+  the first place, db_con objects are able to re-use these information.}
+  \item{self aware}{Db_con objects can check the validity of their connection.}
+  \item{auto reconnect}{Validity checking is used to decide whether or not the
+  persistant conenction information should be used to reconnect because - e.g.
+  connection timed out or was closed in the meantime.}
+}
+}
+
+\section{Active Bindings}{
+
+
+\describe{
+  \item{\code{con}}{Gives access to the actual DBIConnection object that is wrapped in db_con object. The active bindings (1) gives easy access to the connection as field adn (2) the active binding allows for validity checking and reconnecting in case of invalid connections leading to always fresh connections.}
+}
+}
 
 \section{Methods}{
 
 
 \describe{
-  \item{initialize}{will either set up connection}
+  \item{\code{connect(drv_fun, ...)}}{will connect to database if not already connected -- see \link{db_connect}}
+  \item{\code{finalize()}}{will close connection}
+  \item{\code{initialize()}}{will open connection and store all information necessary to create new connection}
+  \item{\code{info()}}{will provide some basic information about connection}
+  \item{\code{disconnect()}}{will close connection}
 }
 }
 
+\seealso{
+new_db_con
+}
 \keyword{data}
