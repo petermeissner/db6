@@ -46,6 +46,18 @@ if ( require("RSQLite") == TRUE ) {
       })
     })
 
+  test_that(
+    "connection duplication works at all",
+    expect_true({
+      db_con <- new_db_con(RSQLite::SQLite, tempfile())
+      DBI::dbExecute(db_con$con, "create table abc (a int)")
+      DBI::dbExecute(db_con$con, "insert into abc (a) values (1),(2),(3)")
+      DBI::dbGetQuery(db_con$con, "select * from abc")
+      db_con2 <- db_con$duplicate()
+      DBI::dbListTables(db_con2$con) == "abc"
+    })
+  )
+
 }
 #### REQUIRE RSQLite -- END ####################################################
 

@@ -77,14 +77,30 @@ class_db_con <-
         # method -- initialize
         initialize =
           function(
-            ...
+            ...,
+            auto_connect = TRUE,
+            .dots = NULL
           ){
 
             # save inits
-            private$inits$dots <- list(...)
+            if ( is.null(.dots) ){
+              private$inits$dots <- list(...)
+            } else {
+              private$inits$dots <- .dots
+            }
+
+            private$inits$auto_connect <- auto_connect
 
             # set connection field
             self$connect()
+          },
+
+        # method -- duplicate
+        duplicate =
+          function(){
+            param              <- private$inits$dots
+            param$auto_connect <- private$inits$auto_connect
+            do.call("new_db_con", param)
           },
 
 
@@ -111,7 +127,11 @@ class_db_con <-
               # check connection validity
               # and (re-)connect if necessary
               if ( !DBI::dbIsValid(private$connection) ) {
-                self$connect()
+                if ( private$inits$auto_connect == TRUE ){
+                  self$connect()
+                } else{
+                  stop("Connection is not longer valid (use db_con$connect() to reconnect to database)")
+                }
               }
 
               # return connecion
