@@ -116,6 +116,21 @@ devtools::install_github("petermeissner/db6")
 
 
 
+------------------------------------------------------------------------
+
+## Objects
+
+**db** : A representation of a database within R. The object allows to 
+get information about the database and objects stored in it (tables and such), 
+to retrieve objects from it, and to manipulate it via queries and convenience methods. 
+
+**db_con** : The heart and work horse of all db objects and responsible for 
+the actual information flow between R and the database with methods for connect, 
+disconnect, reconnect, querying, and manipulating the database. 
+
+**tb_table** : A representation of a database table with particular methods to interact with tables - create, delete, append, copy, retrieve, filter, peak, 
+and update.
+
 
 ------------------------------------------------------------------------
 

@@ -1,6 +1,7 @@
 -   [A convenience R6 class framework around
     DBI](#a-convenience-r6-class-framework-around-dbi)
     -   [Package Info](#package-info)
+    -   [Objects](#objects)
     -   [Connections](#connections)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -21,14 +22,14 @@ checks](https://cranchecks.info/badges/summary/reshape)](https://cran.r-project.
 </a> <img src="http://cranlogs.r-pkg.org/badges/grand-total/db6">
 <img src="http://cranlogs.r-pkg.org/badges/db6">
 
-*lines of R code:* 101, *lines of test code:* 0
+*lines of R code:* 261, *lines of test code:* 73
 
 Package Info
 ------------
 
 **Version**
 
-0.1.1 ( 2018-10-24 05:48:37 )
+0.1.3 ( 2018-10-31 14:49:32 )
 
 **Description**
 
@@ -49,6 +50,25 @@ Stable version from CRAN:
 Latest development version from Github:
 
     devtools::install_github("petermeissner/db6")
+
+------------------------------------------------------------------------
+
+Objects
+-------
+
+**db** : A representation of a database within R. The object allows to
+get information about the database and objects stored in it (tables and
+such), to retrieve objects from it, and to manipulate it via queries and
+convenience methods.
+
+**db\_con** : The heart and work horse of all db objects and responsible
+for the actual information flow between R and the database with methods
+for connect, disconnect, reconnect, querying, and manipulating the
+database.
+
+**tb\_table** : A representation of a database table with particular
+methods to interact with tables - create, delete, append, copy,
+retrieve, filter, peak, and update.
 
 ------------------------------------------------------------------------
 
@@ -90,7 +110,8 @@ Connections
     db_con$con
 
     ## <SQLiteConnection>
-    ##   DISCONNECTED
+    ##   Path: :memory:
+    ##   Extensions: TRUE
 
     db_con$info()
 
